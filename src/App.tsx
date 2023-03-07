@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
+import {questionIds} from './constants/constants';
 import './App.css';
+import Questions from './components/Questions';
 
-function App() {
+const App = (): JSX.Element => {
+  const [currQuestionIndex, setCurrQuestionIndex] = useState<number>(0);
+
+  const handlePreviousQuestion = (): void => {
+    if (currQuestionIndex > 0) {
+      setCurrQuestionIndex(currQuestionIndex - 1);
+    }
+  };
+
+  const handleNextQuestion = (): void => {
+    if (currQuestionIndex < questionIds.length - 1) {
+      setCurrQuestionIndex(currQuestionIndex + 1);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Math Questions</h1>
+      <div className="question-container">
+        <div className="question-wrapper">
+          <h2>Question {currQuestionIndex+1}</h2>
+          <Questions questionId={questionIds[currQuestionIndex]} />
+        </div>
+      </div>
+      <div className="button-container">
+        <button onClick={handlePreviousQuestion} disabled={currQuestionIndex === 0}>Previous Question</button>
+        <button onClick={handleNextQuestion} disabled={currQuestionIndex === questionIds.length - 1}>Next Question</button>
+      </div>
     </div>
   );
 }
