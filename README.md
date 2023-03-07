@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+Front-end Software Engineer 
+Interview Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Prerequisite:
+This task requires a basic understanding of React.js. 
+Task Details:
+Create a react application that displays mathematics questions. One question is displayed at a time, and the user can navigate backwards and forwards. There are three total questions.
 
-In the project directory, you can run:
+Where to get the Questions? 
+Make an API call to the following link to fetch the question details. 
+https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=QuestionID 
 
-### `npm start`
+The above URL takes a Query Parameter called “QuestionID”. The QuestionIDs for the three questions are:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+AreaUnderTheCurve_901
+BinomialTheorem_901
+DifferentialCalculus2_901
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Example:
+https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=AreaUnderTheCurve_901 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The question needs to be parsed out from this. It is in the “Question” field.  (For the above link, the question is:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[{"ChapterID": "AreaUnderTheCurve", "QuestionID": "AreaUnderTheCurve_901", "UpdateQuestion": 0, "ExpectedTime": 25, "Difficulty": "0", "Source": "n/a ", "PostQuestionNotes": "n/a ", "Tags": "Theory", "Question": "Let \\( F(x) = \\int_{h(x)}^{g(x)}f(t)dt \\) such that function g(x) and h(x) are defined on \\( [a,b] \\) and differentiable at all points \\( x\\in[a,b] \\), then \\( \\frac{d}{dx}F(x) = ? \\)", "QuestionSummary": "", "Step1": "", "Result1": "", "Explanation1": "", "Step1Timer": 60, "Step2": "", "Result2": "", "Explanation2": "", "Step2Timer": 20, "Step3": "", "Result3": "", "Explanation3": "", "Step3Timer": 15, "Step4": "", "Result4": "", "Explanation4": "", "Step4Timer": 15, "Step5": "", "Result5": "", "Explanation5": "", "Step5Timer": 15, "Step6": null, "Result6": null, "Explanation6": null, "Step6Timer": null, "Step7": null, "Result7": null, "Explanation7": null, "Step7Timer": null, "Step8": null, "Result8": null, "Explanation8": null, "Step8Timer": null}]
 
-### `npm run eject`
+([a,b] \\) and differentiable at all points \\( x\\in[a,b] \\), then \\( \\frac{d}{dx}F(x)
+How to display the question? 
+The above question is Mathjax code. We need to use a library called Better React Mathjax to render this. After using the library, this is what the question should look like: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Evaluation Rubric 
+All questions are rendered as expected (users should see questions, not the mathjax code)
+The user can navigate between the questions.
+The app is responsive (web, tablet, and mobile view) 
+Overall design and usability.
