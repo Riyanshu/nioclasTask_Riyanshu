@@ -1,13 +1,13 @@
-Front-end Software Engineer 
-Interview Task
+#Front-end Software Engineer 
+##Interview Task
 
 
-Prerequisite:
+###Prerequisite:
 This task requires a basic understanding of React.js. 
 Task Details:
 Create a react application that displays mathematics questions. One question is displayed at a time, and the user can navigate backwards and forwards. There are three total questions.
 
-Where to get the Questions? 
+###Where to get the Questions? 
 Make an API call to the following link to fetch the question details. 
 https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=QuestionID 
 
@@ -21,7 +21,7 @@ DifferentialCalculus2_901
 
 
 
-Example:
+###Example:
 https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com/getQuestionDetails/getquestiondetails?QuestionID=AreaUnderTheCurve_901 
 
 The question needs to be parsed out from this. It is in the “Question” field.  (For the above link, the question is:
@@ -34,7 +34,7 @@ The above question is Mathjax code. We need to use a library called Better React
 
 
 
-Evaluation Rubric 
+###Evaluation Rubric 
 All questions are rendered as expected (users should see questions, not the mathjax code)
 The user can navigate between the questions.
 The app is responsive (web, tablet, and mobile view) 
