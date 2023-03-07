@@ -23,8 +23,7 @@ const App = (): JSX.Element => {
       <h1>Math Questions</h1>
       <div className="question-container">
         <div className="question-wrapper">
-          <h2>Question {currQuestionIndex+1}</h2>
-          <Questions questionId={questionIds[currQuestionIndex]} />
+          <Questions index={currQuestionIndex} />
         </div>
       </div>
       <div className="button-container">

@@ -1,11 +1,11 @@
 import Axios from 'axios';
 import { baseUrl } from '../constants/constants';
 
-interface IQuestionsResponse {
-    Question: string;
-}
-
-export const questionApi = (id: string): Promise<IQuestionsResponse[]> => {
-    return Axios.get(`${baseUrl}/getquestiondetails?QuestionID=${id}`)
-        .then(response => response.data);
+export const questionApi = (questionIds: string[]): Promise<string[]> => {
+    const promises = questionIds.map((id) =>
+        Axios.get(
+          `${baseUrl}/getquestiondetails?QuestionID=${id}`
+        ).then((res) => res.data[0]?.Question)
+      );
+    return Promise.all(promises);
 }

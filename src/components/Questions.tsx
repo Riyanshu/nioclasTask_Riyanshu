@@ -1,18 +1,19 @@
 import {useEffect, useState} from 'react';
 import { questionApi } from '../apis/questionApi';
 import { MathJax } from 'better-react-mathjax';
+import {questionIds} from '../constants/constants';
 
 interface IQuestions {
-    questionId: string;
+    index: number;
 }
 
 const Questions = (props: IQuestions): JSX.Element => {
-    const { questionId } = props;
-    const [question, setQuestion] = useState<string | null>(null);
+    const { index } = props;
+    const [questions, setQuestions] = useState<string[] | null>(null);
 
     const fetchQuestion = async () => {
         try {
-            await questionApi(questionId).then(data => setQuestion(data[0].Question))
+            await questionApi(questionIds).then(data => setQuestions(data))
         } catch (err) {
             console.error(err);
         }
@@ -20,16 +21,18 @@ const Questions = (props: IQuestions): JSX.Element => {
 
     useEffect(() => {
         fetchQuestion();
-    }, [questionId])
+    }, [])
 
     return (
-        <div>
-            {question && (
-                <MathJax>
-                    {question}.
-                </MathJax>
+        <>
+            {questions && (
+                <>
+                    <h2>Question {index+1}</h2>
+                    <MathJax>{questions[index]}</MathJax>
+                </>
+
             )}
-        </div>
+        </>
     );
 }
 
